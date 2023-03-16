@@ -71,42 +71,46 @@ isPalindrome(userWord)
 /* Pari e Dispari
 L’utente sceglie pari o dispari e inserisce un numero da 1 a 5. Generiamo un numero random (sempre da 1 a 5) per il computer (usando una funzione). Sommiamo i due numeri Stabiliamo se la somma dei due numeri è pari o dispari (usando una funzione) Dichiariamo chi ha vinto.
  */
+
+
 //choices
 const choice = prompt('Choose between even or odd?')
-const userChoice = choice.toLowerCase()
-let computerChoice = ''
-if(userChoice == 'even') {
-    computerChoice = 'odd'
-} else {
-    computerChoice = 'even'
-}
-console.log(`Your choice is ${userChoice}`)
-console.log(`The Pc's choice is ${computerChoice}`)
-
-//numbers
 const userNumberChoice = Number(prompt('Insert a number from 1 to 5'))
-console.log(`Your number is ${userNumberChoice}`)
-if(isNaN(userNumberChoice)) {
-    console.log('this is not a number, please insert a number from 1 to 5')
-}
-const pcNumberChoice = Math.ceil(Math.random()* 5)
-console.log(`The Pc's number is ${pcNumberChoice}`)
-if ((userNumberChoice + pcNumberChoice) % 2 === 0){
-    if(userChoice == 'even'){
-        console.log('You won')
+
+function evenOrOdd(word, number){
+    const userChoice = word.toLowerCase()
+    let computerChoice = ''
+    if(userChoice == 'even') {
+        computerChoice = 'odd'
     } else {
-        console.log('You lost')
+        computerChoice = 'even'
     }
-} else {
-    if(userChoice == 'odd'){
-        console.log('You won')
+    console.log(`Your choice is ${userChoice}`)
+    console.log(`The Pc's choice is ${computerChoice}`)
+    
+    //numbers
+    //const userNumberChoice = Number(prompt('Insert a number from 1 to 5'))
+    console.log(`Your number is ${number}`)
+    if(isNaN(number)) {
+        console.log('this is not a number, please insert a number from 1 to 5')
+    }
+    const pcNumberChoice = Math.ceil(Math.random()* 5)
+    console.log(`The Pc's number is ${pcNumberChoice}`)
+    if ((number + pcNumberChoice) % 2 === 0){
+        if(userChoice == 'even'){
+            console.log('You won')
+        } else {
+            console.log('You lost')
+        }
     } else {
-        console.log('You lost')
+        if(userChoice == 'odd'){
+            console.log('You won')
+        } else {
+            console.log('You lost')
+        }
     }
 }
-
-
-
+evenOrOdd(choice, userNumberChoice)
 
 
 
